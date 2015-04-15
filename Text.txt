@@ -1,0 +1,240 @@
+Operators
+      Once we know of the existence of variables and constants, we can begin to operate with them.
+Як тільки ми дізнаємося про існування змінні і константи, ми можемо почати працювати з ними.
+        For that purpose, C++ integrates operators.  	Для цієї мети, C + + об'єднує операторів.
+
+      Unlike other languages whose operators are mainly keywords, operators in C++ are mostly made of signs that are not part of the alphabet but are available in all keyboards. 
+      На відміну від інших мов, оператори яких в основному ключові слова, оператори в C + + в основному із знаків, які не входять в алфавіт, але доступні у всіх клавіатурах. 
+
+      This makes C++ code shorter and more international, since it relies less on English words, but requires a little of learning effort in the beginning.
+      Це робить код мови C + + коротшим і більш інтернаціональним, так як вона менше покладається на англійські слова, та вимагає невеликого навчального зусилля на самому початку.
+            
+         You do not have to memorize all the content of this page. Most details are only provided to serve as a later reference in case you need it. 
+         Ви не повинні запам'ятовувати весь вміст цієї сторінки. Більшість деталей надаються тільки в якості подальшого використання в разі, якщо вам це потрібно.
+Assignment (=)
+      The assignment operator assigns a value to a variable.
+      Оператор присвоювання привласнює значення змінної.
+Arithmetic operators ( +, -, *, /, % )
+      
+      The five arithmetical operations supported by the C++ language are:  П'ять арифметичних операцій, підтримуваних мов C + +, є:
+      
++addition-subtraction*multiplication/division%modulo      
+      Operations of addition, subtraction, multiplication and division literally correspond with their respective mathematical operators. The only one that you might not be so used to see is modulo; whose operator is the percentage sign (%). Modulo is the operation that gives the remainder of a division of two values. For example, if we write:
+      Операції додавання, віднімання, множення і ділення буквально відповідають їх відповідних математичних операторів. Єдине, що не може бути так звикли бачити по модулю, оператором якого є знак відсотка (%). Modulo це операція, яка дає залишок від ділення двох значень. Наприклад, якщо ми напишемо:
+ a = 11 % 3;            
+the variable a will contain the value 2, since 2 is the remainder from dividing 11 between 3.
+змінна буде містити значення 2, так як 2 є залишок від ділення 11 між 3.
+
+
+Compound assignment (+=, -=, *=, /=, %=, >>=, <<=, &=, ^=, |=)
+      When we want to modify the value of a variable by performing an operation on the value currently stored in that variable we can use compound assignment operators:
+      Коли ми хочемо змінити значення змінної, виконуючи операцію по значенню в даний час зберігається в цій змінній ми можемо використовувати оператори присвоювання:
+в даний час зберігається
+
+expressionis equivalent tovalue += increase;value = value + increase;a -= 5;a = a - 5;a /= b;a = a / b;price *= units + 1;price = price * (units + 1);            
+and the same for all other operators. For example:
+однаковим для всіх інших операторів. Наприклад:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13// compound assignment operators
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+  int a, b=3;
+  a = b;
+  a+=2;             // equivalent to a=a+2
+  cout << a;
+  return 0;
+}5Increase and decrease (++, --)
+      Shortening even more some expressions, the increase operator (++) and the decrease operator (--) increase or reduce by one the value stored in a variable. They are equivalent to +=1 and to -=1, respectively. Thus:
+      Скорочення ще деякі вирази, збільшення оператора (+ +) і зменшення оператора (-) збільшення або зменшення одного значення, що зберігається в змінної. Вони еквівалентні + = 1 і - = 1, відповідно. Таким чином:
+1
+2
+3c++;
+c+=1;
+c=c+1;      are all equivalent in its functionality: the three of them increase by one the value of c. In the early C compilers, the three previous expressions probably produced different executable code depending on which one was used. Nowadays, this type of code optimization is generally done automatically by the compiler, thus the three expressions should produce exactly the same executable code.
+      еквівалентні за своєю функціональністю: три з них збільшиться на одну величину с.На початку компілятори C, три попередніх виразів, ймовірно, виробляються різні виконуваний код, в залежності від якого були використані. В даний час цей тип оптимізації коду, як правило, робиться автоматично за допомогою компілятора, при цьому три вирази повинні робити точно такі ж виконуваний код.
+      A characteristic of this operator is that it can be used both as a prefix and as a suffix. That means that it can be written either before the variable identifier (++a) or after it (a++). Although in simple expressions like a++ or ++aboth have exactly the same meaning, in other expressions in which the result of the increase or decrease operation is evaluated as a value in an outer expression they may have an important difference in their meaning: In the case that the increase operator is used as a prefix (++a) the value is increased before the result of the expression is evaluated and therefore the increased value is considered in the outer expression; in case that it is used as a suffix (a++) the value stored in a is increased after being evaluated and therefore the value stored before the increase operation is evaluated in the outer expression. Notice the difference:
+      Характерною особливістю цього оператора є те, що вона може бути використана як в якості префікса і в якості суфікса. Це означає, що він може бути записаний або до ідентифікатор змінної (+ +) або після нього (+ +). Хоча в простих виразах типу + + або + + Aboth мають точно такий же зміст, в інших виразах, в яких результат збільшення або зменшення операції оцінюється як значення у зовнішньому вираженні вони можуть мати важливе розходження в їх сенс: в випадок, що збільшення оператор використовується як префікс (+ +), значення збільшується до результату обчислення виразу і, отже, збільшення вартості вважається у зовнішньому вираженні, а в разі, якщо вона використовується в якості суфікса (+ + ) значенням, що зберігається в збільшенні після того, як оцінюються і, отже, значення, збережене до підвищення операції оцінюється в зовнішнє вираження. Зверніть увагу на різницю:
+      
+Example 1Example 2B=3;
+A=++B;
+// A contains 4, B contains 4B=3;
+A=B++;
+// A contains 3, B contains 4     In Example 1, B is increased before its value is copied to A. While in Example 2, the value of B is copied to A and then B is increased. 
+     У прикладі 1, B зростає до його значення копіюється в A. В той час як в прикладі 2, значення B копіюється в B, а потім збільшується.
+Relational and equality operators ( ==, !=, >, <, >=, <= )
+     In order to evaluate a comparison between two expressions we can use the relational and equality operators. The result of a relational operation is a Boolean value that can only be true or false, according to its Boolean result.
+     Для того щоб оцінити порівняння двох виразів ми можемо використовувати реляційну і рівності операторів. В результаті реляційної операції є логічне значення, яке може бути тільки істинним або хибним, відповідно до його логічний результат.
+     We may want to compare two expressions, for example, to know if they are equal or if one is greater than the other is. Here is a list of the relational and equality operators that can be used in C++: 
+     Ми можете порівняти два вирази, наприклад, знати, якщо вони рівні, або якщо один більше, ніж інший. Ось список з реляційних і рівності операторів, які можна використовувати в C + +:
+==Equal to!=Not equal to>Greater than<Less than>=Greater than or equal to<=Less than or equal to     Here there are some examples:	Тут є декілька прикладів:
+1
+2
+3
+4
+5(7 == 5)     // evaluates to false.
+(5 > 4)      // evaluates to true.
+(3 != 2)     // evaluates to true.
+(6 >= 6)     // evaluates to true.
+(5 < 5)      // evaluates to false.      
+     Of course, instead of using only numeric constants, we can use any valid expression, including variables. Suppose that a=2, b=3 and c=6,Звичайно, замість того, щоб, використовуючи тільки числових констант, ми можемо використовувати будь допустиме вираз, в тому числі змінні. Припустимо, що = 2, B = 3, с = 6,
+1
+2
+3
+4(a == 5)     // evaluates to false since a is not equal to 5.
+(a*b >= c)   // evaluates to true since (2*3 >= 6) is true. 
+(b+4 > a*c)  // evaluates to false since (3+4 > 2*6) is false. 
+((b=2) == a) // evaluates to true.       Be careful! The operator = (one equal sign) is not the same as the operator == (two equal signs), the first one is an assignment operator (assigns the value at its right to the variable at its left) and the other one (==) is the equality operator that compares whether both expressions in the two sides of it are equal to each other. Thus, in the last expression ((b=2) == a), we first assigned the value 2 to b and then we compared it to a, that also stores the value 2, so the result of the operation is true.
+     Будьте обережні! Оператор = (один знак рівності) не те ж саме, що і оператор == (два знаки рівності), Перший оператор присвоювання (присвоюється значення на своєму праві на змінну на її ліву), а інший (= =) це рівність оператором, який порівнює чи обидва вирази в дві сторони його рівні один одному. Таким чином, в останній вираз ((B = 2) ==), ми спочатку присвоюється значення від 2 до б, а потім ми порівняли його з, що також зберігає значення 2, так що результат операції це правда.
+
+Logical operators ( !, &&, || )
+     The Operator ! is the C++ operator to perform the Boolean operation NOT, it has only one operand, located at its right, and the only thing that it does is to inverse the value of it, producing false if its operand is true and true if its operand is false. Basically, it returns the opposite Boolean value of evaluating its operand. For example:
+     Оператор! є C + + оператор для виконання логічної операції NOT, вона має тільки один операнд, розташований на правому, і єдине, що вона робить, це зворотне значення його, виробляючи помилкове, якщо її операнд вірно і істинно, якщо його операнд помилковими. В основному, це повертає протилежне логічне значення оцінки її операнд. Наприклад:
+1
+2
+3
+4!(5 == 5)    // evaluates to false because the expression at its right (5 == 5) is true. 
+!(6 <= 4)    // evaluates to true because (6 <= 4) would be false. 
+!true        // evaluates to false
+!false       // evaluates to true.  
+      The logical operators && and || are used when evaluating two expressions to obtain a single relational result. The operator && corresponds with Boolean logical operation AND. This operation results true if both its two operands are true, and false otherwise. The following panel shows the result of operator && evaluating the expression a && b:
+      Логічних операторів && і | | використовуються при оцінці двох виразів для отримання однієї реляційної результат. Оператор && відповідає булевої логічної операції AND. Ця операція приводить істинне, якщо обидва його два операнда істинні, і помилково в іншому випадку. Наступна панель показує результат оператора && обчислення виразу && B:
+      
+       && OPERATOR
+aba && btruetruetruetruefalsefalsefalsetruefalsefalsefalsefalse      The operator || corresponds with Boolean logical operation OR. This operation results true if either one of its two operands is true, thus being false only when both operands are false themselves. Here are the possible results ofa || b:
+      Оператор | | відповідає булевої логічної операції АБО. Ця операція результатами вірно, якщо жодна з двох операндів є істинним, тобто є помилковою тільки тоді, коли обидва операнди помилкові самі. Ось можливі результати OFA | | б:
+       || OPERATOR
+aba || btruetruetruetruefalsetruefalsetruetruefalsefalsefalse      For example:
+
+1
+2( (5 == 5) && (3 > 6) )  // evaluates to false ( true && false ).
+( (5 == 5) || (3 > 6) )  // evaluates to true ( true || false ).      When using the logical operators, C++ only evaluates what is necessary from left to right to come up with the combined relational result, ignoring the rest. Therefore, in this last example ((5==5)||(3>6)), C++ would evaluate first whether 5==5 is true, and if so, it would never check whether 3>6 is true or not. This is known as short-circuit evaluation, and works like this for these operators:
+     При використанні логічних операторів, C + + оцінює тільки те, що необхідно зліва направо, щоб придумати з комбінованою реляційних результат, ігноруючи інші. Таким чином, в останньому прикладі ((5 == 5) | | (3> 6)), C + + буде оцінювати те чи 5 == 5 вірно, і якщо це так, то ніколи б не перевірити 3> 6, правда це чи ні . Це відомо як коротке замикання оцінки, і як це працює для цих операторів:
+     
+operatorshort-circuit&&if the left-hand side expression is false, the combined result is false (right-hand side expression not evaluated). 
+якщо ліва частина виразу є хибним, комбінований результат є помилковим (права частина виразу не обчислюється).||if the left-hand side expression is true, the combined result is true (right-hand side expression not evaluated).This is mostly important when the right-hand expression has side effects, such as altering values:
+В основному, це важливо, коли права вираз має побічні ефекти, такі як зміна значення:
+ if ((i<10)&&(++i<n)) { /*...*/ }     
+     This combined conditional expression increases i by one, but only if the condition on the left of && is true, since otherwise the right-hand expression (++i<n) is never evaluated.
+     Цей комбінований умовний вираз збільшує Я одна, але тільки за умови зліва від && вірно, оскільки в іншому випадку права вираженні (+ + я <п) ніколи не оцінювалися.
+Conditional operator ( ? )
+
+     The conditional operator evaluates an expression returning a value if that expression is true and a different one if the expression is evaluated as false. Its format is: 
+     Умовний оператор обчислює вираз повертає значення, якщо цей вираз істинно, і іншу, якщо вираз оцінюється як помилкове. Його формат:
+     
+condition ? result1 : result2
+
+If condition is true the expression will return result1, if it is not it will return result2.
+
+1
+2
+3
+47==5 ? 4 : 3     // returns 3, since 7 is not equal to 5.
+7==5+2 ? 4 : 3   // returns 4, since 7 is equal to 5+2.
+5>3 ? a : b      // returns the value of a, since 5 is greater than 3.
+a>b ? a : b      // returns whichever is greater, a or b. 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17// conditional operator
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+  int a,b,c;
+
+  a=2;
+  b=7;
+  c = (a>b) ? a : b;
+
+  cout << c;
+
+  return 0;
+}7
+     In this example a was 2 and b was 7, so the expression being evaluated (a>b) was not true, thus the first value specified after the question mark was discarded in favor of the second value (the one after the colon) which was b, with a value of 7.
+     У цьому прикладі було 2 і б було 7 років, так що вираз оцінюється (A> B) не було правдою, таким чином, перше значення, вказане після знака питання була відкинута на користь другого значення (той, після двокрапки), який було б, зі значенням 7.
+Comma operator ( , )
+     The comma operator (,) is used to separate two or more expressions that are included where only one expression is expected. When the set of expressions has to be evaluated for a value, only the rightmost expression is considered.
+     Оператор кома (,) використовується для розділення двох або більше виразів, які включені, де тільки один вираз не очікується. Коли набір виразів повинен бути оцінений для значення, тільки правий вираз вважається.
+     For example, the following code:
+
+ a = (b=3, b+2);     Would first assign the value 3 to b, and then assign b+2 to variable a. So, at the end, variable a would contain the value 5 while variable b would contain value 3. Перший полягає присвоїти значення від 3 до б, а потім призначити B +2 в змінну. Так що, врешті-решт, змінна буде містити значення 5, а змінна B буде містити значення 3.
+
+Bitwise Operators ( &, |, ^, ~, <<, >> )
+    Bitwise operators modify variables considering the bit patterns that represent the values they store. Бітові оператори змінювати перемінні урахуванням бітів, які являють собою цінності, які вони зберігають.
+
+operatorasm equivalentdescription&ANDBitwise AND|ORBitwise Inclusive OR^XORBitwise Exclusive OR~NOTUnary complement (bit inversion)<<SHLShift Left>>SHRShift Right
+
+Explicit type casting operator
+     Type casting operators allow you to convert a datum of a given type to another. There are several ways to do this in C++. The simplest one, which has been inherited from the C language, is to precede the expression to be converted by the new type enclosed between parentheses (()):
+     Оператори типу лиття дозволяють конвертувати дане даного типу в інший. Є кілька способів зробити це в C + +. Найпростіший з них, які були успадковані від мови C, повинен передувати вираз бути перетворено в новий тип, укладений між дужками (()):
+1
+2
+3int i;
+float f = 3.14;
+i = (int) f;     The previous code converts the float number 3.14 to an integer value (3), the remainder is lost. Here, the typecasting operator was (int). Another way to do the same thing in C++ is using the functional notation: preceding the expression to be converted by the type and enclosing the expression between parentheses:
+     Попередній код перетворює число з плаваючою точкою 3,14 до цілого значення (3), решта втрачається. Тут типажів Оператор (INT). Ще один спосіб зробити те ж саме в C + + використовується функціональне позначення: попередній вираз бути перетворено за типом і огороджувальних вираз в дужках:
+ i = int ( f );  Both ways of type casting are valid in C++. Обидва способи приведення типів дійсні в C + +.
+
+sizeof()
+     This operator accepts one parameter, which can be either a type or a variable itself and returns the size in bytes of that type or object:
+     Цей оператор приймає один параметр, який може бути або типу або змінна себе і повертає розмір в байтах цього типу або об'єкт:
+ a = sizeof (char);This will assign the value 1 to a because char is a one-byte long type. The value returned by sizeof is a constant, so it is always determined before program execution.
+Це дозволить привласнити значення 1, тому що символ є один байт довгого типу. Значення, що повертається SizeOf є постійним, тому вона завжди визначається перед виконанням програми.
+Other operators
+     Later in these tutorials, we will see a few more operators, like the ones referring to pointers or the specifics for object-oriented programming. Each one is treated in its respective section.
+
+Precedence of operators
+When writing complex expressions with several operands, we may have some doubts about which operand is evaluated first and which later. For example, in this expression:
+Пізніше в цих підручників, то ми побачимо ще кілька операторів, як ті, посилаючись на покажчики або особливості для об'єктно-орієнтованого програмування. Кожен з них розглядається у відповідному розділі.
+ a = 5 + 7 % 2
+we may doubt if it really means:
+ми можемо сумніватися, якщо він насправді означає:
+1
+2a = 5 + (7 % 2)    // with a result of 6, or
+a = (5 + 7) % 2    // with a result of 0 
+The correct answer is the first of the two expressions, with a result of 6. There is an established order with the priority of each operator, and not only the arithmetic ones (those whose preference come from mathematics) but for all the operators which can appear in C++. From greatest to lowest priority, the priority order is as follows: 
+Правильною відповіддю є першою з двох виразів, з результатом 6. Існує установленому порядку з пріоритетом кожного оператора, а не тільки арифметичні (тих, чиї переваги прийшли з математики), але для всіх операторів, які можуть з'явитися в C + +. З найбільшим в низький пріоритет, пріоритет порядку виглядає наступним чином:
+LevelOperatorDescriptionGrouping1::scopeLeft-to-right2() [] . -> ++ -- dynamic_cast static_cast reinterpret_cast const_cast typeidpostfixLeft-to-right3++ -- ~ ! sizeof new deleteunary (prefix)Right-to-left* &indirection and reference (pointers)+ -unary sign operator4(type)type castingRight-to-left5.* ->*pointer-to-memberLeft-to-right6* / %multiplicativeLeft-to-right7+ -additiveLeft-to-right8<< >>shiftLeft-to-right9< > <= >=relationalLeft-to-right10== !=equalityLeft-to-right11&bitwise ANDLeft-to-right12^bitwise XORLeft-to-right13|bitwise ORLeft-to-right14&&logical ANDLeft-to-right15||logical ORLeft-to-right16?:conditionalRight-to-left17= *= /= %= += -= >>= <<= &= ^= |=assignmentRight-to-left18,commaLeft-to-right
+Grouping defines the precedence order in which operators are evaluated in the case that there are several operators of the same level in an expression.
+Угрупування визначає порядок пріоритетів, в якому оператори оцінюють у випадку, якщо існує кілька операторів одного і того ж рівня у виразах.
+All these precedence levels for operators can be manipulated or become more legible by removing possible ambiguities using parentheses signs ( and ), as in this example:
+Всі ці рівні пріоритету для операторів можна маніпулювати або стають більш розбірливими, видаляючи можливі неясності за допомогою круглих дужок знаки (і), як у наступному прикладі:
+ a = 5 + 7 % 2;
+might be written either as:
+можуть бути записані у вигляді:
+ a = 5 + (7 % 2);or
+ a = (5 + 7) % 2;
+depending on the operation that we want to perform.
+в залежності від операції, яку ми хочемо виконати.
+So if you want to write complicated expressions and you are not completely sure of the precedence levels, always include parentheses. It will also make your code easier to read.
+Так що, якщо ви хочете написати складних виразів, і ви не повністю впевнені в тому, рівні пріоритету, завжди включати дужки. Це також зробить ваш код більш легким для читання.
